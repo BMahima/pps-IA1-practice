@@ -1,4 +1,4 @@
-gdb ./a.out
+gdb ./a.out;
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
@@ -15,23 +15,50 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from ./a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x7b1: file p1final.c, line 16.
+Breakpoint 1 at 0x7fc: file p1original.c, line 16.
 (gdb) r
 Starting program: /home/runner/pps-IA1-practice/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p1final.c:16
+Breakpoint 1, main () at p1original.c:16
 16  {
 (gdb) n
 18    input(&x,&y);
+(gdb) s
+input (a=0x7ffc6432afac, b=0x7ffc6432afb0) at p1original.c:4
+4     printf("enter the two numbers: \n");
 (gdb) n
-enter the two numbers: 2,3
-,
+enter the two numbers: 
+5     scanf("%d" "%d",a,b);
+(gdb) n
+1
+2
+6   }
+(gdb) n
+main () at p1original.c:19
 19    add(x,y,&z);
+(gdb) s
+add (a=1, b=2, sum=0x7ffc6432afb4) at p1original.c:9
+9     *sum=a+b;
 (gdb) n
+10  }
+(gdb) n
+main () at p1original.c:20
 20    output(x,y,z);
+(gdb) s
+output (a=1, b=2, sum=3) at p1original.c:13
+13    printf("%d+%d=%d \n",a,b,sum);
 (gdb) n
-2+3=5 
+1+2=3 
+14  }
+(gdb) n
+main () at p1original.c:21
 21    return 0;
+(gdb) p x
+$1 = 1
+(gdb) p y
+$2 = 2
+(gdb) p z
+$3 = 3
 (gdb) n
 22  }

@@ -1,8 +1,8 @@
 #include <stdio.h>
 void input(int *a, int *b)
 {
-  printf("enter the two numbers: ");
-  scanf("%d,%d \n",a,b);
+  printf("enter the two numbers: \n");
+  scanf("%d" "%d",a,b);
 }
 void add(int a, int b, int *sum)
 {
