@@ -1,0 +1,91 @@
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x8d6: file p6final.c, line 39.
+(gdb) r
+Starting program: /home/runner/pps-IA1-practice/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p6final.c:39
+39  {
+(gdb) n
+42    input_two_string(a,b);
+(gdb) s
+input_two_string (a=0x7ffcb8727490 "\001", b=0x7ffcb87274b0 "@\t \263\260U")
+    at p6final.c:4
+4      printf("Enter the first string to compare: \n");
+(gdb) n
+Enter the first string to compare: 
+5      scanf("%s",a);
+(gdb) n
+hell
+6      printf("Enter the second string to compare: \n");
+(gdb) n
+Enter the second string to compare: 
+7      scanf("%s",b);
+(gdb) n
+hello
+8    }
+(gdb) n
+main () at p6final.c:43
+43    str_cmp(a,b,&result);
+(gdb) s
+13   while(a[i]!='\0' && b[i]!='\0' && a[i]==b[i])
+(gdb) n
+15     i++;
+(gdb) n
+13   while(a[i]!='\0' && b[i]!='\0' && a[i]==b[i])
+(gdb) n
+15     i++;
+(gdb) n
+13   while(a[i]!='\0' && b[i]!='\0' && a[i]==b[i])
+(gdb) n
+15     i++;
+(gdb) 
+13   while(a[i]!='\0' && b[i]!='\0' && a[i]==b[i])
+(gdb) n
+15     i++;
+(gdb) n
+13   while(a[i]!='\0' && b[i]!='\0' && a[i]==b[i])
+(gdb) n
+18   *result=a[i]-b[i];
+(gdb) n
+19   return *result;
+(gdb) n
+21  }
+(gdb) n
+main () at p6final.c:44
+44    output(a,b,result);
+(gdb) s
+output (a=0x7ffcb8727490 "hell", b=0x7ffcb87274b0 "hello", result=-111)
+    at p6final.c:24
+24    if (result>0)
+(gdb) n
+28    else if(result<0)
+(gdb) n
+30      printf("The string %s is greater than %s\n",b,a);
+(gdb) n
+The string hello is greater than hell
+36  }
+(gdb) n
+main () at p6final.c:45
+45    return 0;
+(gdb) n
+46  }(gdb) p a
+$1 = "hell"
+(gdb) p b
+$2 = "hello"
+(gdb) 
